@@ -1,0 +1,473 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+h1, h2 {
+    margin: 0;
+}
+.bid__header {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.bid__price-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.bid__price {
+    color: #d9534f;
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.bid__desc {
+    margin-top: 10px;
+    color: #555;
+}
+
+.bid__block-timer {
+    margin-top: 20px;
+}
+
+.bid__text-timer {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.bid__text-timer span {
+    font-weight: bold;
+}
+
+.bid__timer {
+    position: relative;
+    display: inline-block;
+}
+
+.svg-timer {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+/* Стиль кольца */
+.donut-ring {
+    stroke: #4cae4c; /* Зеленый цвет */
+    stroke-width: 16;
+    fill: transparent;
+}
+
+/* Стиль анимации прогресса */
+.circle_animation {
+    stroke: #ffffff; /* Белый цвет */
+    stroke-width: 16;
+    fill: transparent;
+    stroke-dasharray: 376.8; /* значение по умолчанию для круга радиусом 90 */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #333;
+}
+
+.bid__button {
+    margin-top: 20px;
+}
+
+.button-bank {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #5cb85c;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button-bank:hover {
+    background-color: #4cae4c;
+}
+
+/* Общие стили для блоков */
+.block-advantages, .block-tagi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -15px;
+}
+
+.block-advantages__item, .block-tagi__item {
+    flex: 1 1 calc(20% - 30px);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.block-advantages__item:hover, .block-tagi__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для изображений */
+.block-advantages__img img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Стили для заголовков */
+.block-advantages__header, .block-tagi__item {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Стили для всплывающих окон */
+.block-tagi__popup {
+    position: absolute;
+    display: none;
+    top: 100%; /* Позиционирование всплывающего окна ниже родительского элемента */
+    left: 0;   /* Позиционирование всплывающего окна относительно левого края родительского элемента */
+    z-index: 1000; /* Убедитесь, что всплывающее окно отображается выше других элементов */
+    background: #fff; /* Задний фон для всплывающего окна */
+    padding: 10px; /* Внутренний отступ для всплывающего окна */
+    border: 1px solid #ddd; /* Рамка для всплывающего окна */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для всплывающего окна */
+}
+
+
+.block-tagi__item:hover .block-tagi__popup {
+    display: block;
+}
+
+/* Стили для кнопки закрытия */
+.block-tagi__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Анимация для всплывающих окон */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для списка документов */
+.block-advantages__list {
+    text-align: center;
+    padding-left: 20px;
+}
+
+.block-advantages__list li {
+    margin-bottom: 5px;
+}
+
+.block-0-dboc-block4 {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+.block-0-dboc-block4 h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.block-0-dboc-block4 .text-ac {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.block-0-dboc-block4 .d_aic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.block-0-dboc-block4 .no_list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.block-0-dboc-block4 .no_list.list_1 li {
+    margin-bottom: 10px;
+}
+
+.block-0-dboc-block4 .raschet_stoimosti {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.block-0-dboc-block4 .raschet_stoimosti .rs_h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.block-0-dboc-block4 .yellow_block {
+    background-color: #ffc107;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.block-0-dboc-block4 .yellow_block a {
+    color: #000;
+    font-weight: bold;
+}
+
+.block-0-dboc-block4 .no_list.list_2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.block-0-dboc-block4 .no_list.list_2 li {
+    margin-right: 20px;
+}
+
+.block-0-dboc-block4 .no_list.list_2 li:last-child {
+    margin-right: 0;
+}
+
+
+#advantages, #calculator, #infoBlocks {
+    background: white;
+    margin: 2em auto;
+    padding: 2em;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    margin: 0.5em 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 0.5em 0 0.2em;
+}
+
+input, select, textarea, button {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+
+
+.infoBlock {
+    margin-bottom: 1.5em;
+}
+
+.five_steps_bank {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.five_steps_bank h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.fsb_items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 10px;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.fsb_item {
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+    white-space: normal; /* Allows text to wrap within item */
+}
+
+.ft_tiz_img {
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.fsd_text {
+    font-size: 14px;
+    color: #555;
+}
+
+.link {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fsb_arrow {
+    font-size: 24px;
+    color: #4CAF50;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.button_blue {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button_blue:hover {
+    background-color: #45a049;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+#contactIcon {
+    font-size: 2em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#contactFormContainer {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background: white;
+    padding: 1.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    max-width: 300px;
+    width: 100%;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 0.5em 0;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 0.5em;
+    text-decoration: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
